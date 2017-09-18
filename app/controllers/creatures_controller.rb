@@ -17,6 +17,15 @@ class CreaturesController < ApplicationController
     redirect_to creatures_path
   end
 
+  def edit
+    @creature = find_one
+  end
+
+  def update
+    find_one.update(creature_params)
+    redirect_to creatures_path
+  end
+
   def find_one
     creature = Creature.find(params[:id])
   end
